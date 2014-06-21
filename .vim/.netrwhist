@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/irvin/.cache'
+let g:netrw_dirhist_2='/home/irvin/.cache/evolution'
+let g:netrw_dirhist_3='/home/irvin/.cache'
+let g:netrw_dirhist_4='/home/irvin/bin/zurmo/apps/zurmo/htdocs/app/protected/modules/animals'
+let g:netrw_dirhist_5='/home/irvin'
+let g:netrw_dirhist_6='/home/irvin/Desktop'
+let g:netrw_dirhist_7='/home/irvin'
+let g:netrw_dirhist_8='/home'
+let g:netrw_dirhist_9='/'
