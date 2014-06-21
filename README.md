@@ -1,4 +1,4 @@
 vim
 ===
 
-Irvin Torcuato's Vim Configurations
+Irvin Torcuato's Vim Configuration

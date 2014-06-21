@@ -83,7 +83,7 @@ execute pathogen#infect()
 set clipboard=unnamedplus
 
 " Custom key maps
-map <F2> :NERDTreeTabsToggle<CR>
+map <C-E> :NERDTreeTabsToggle<CR>
 noremap <F7> :set list!<CR>
 inoremap <F7> <C-o>:set list!<CR>
 cnoremap <F7> <C-c>:set list!<CR>
