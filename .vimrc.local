@@ -1,0 +1,12 @@
+
+set noexpandtab
+let g:autoclose_on = 0
+let g:airline_theme = 'tomorrow'
+set nospell
+autocm VimEnter * set nospell
+if has('gui_running')
+    colo bluechia
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+else
+    colo Tomorrow-Night
+endif
