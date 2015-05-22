@@ -1,9 +1,11 @@
+filetype plugin indent on
 set noexpandtab
 let g:autoclose_on = 0
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'monochrome'
 set nospell
 autocm VimEnter * set nospell
-colo seoul256
+colo hybrid
 if has('gui_running')
-    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+    colo solarized
+    set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 endif
