@@ -3,6 +3,7 @@ set nocompatible
 set shell=/bin/sh
 
 source ~/.vimrc.bundles
+source ~/.vimrc.before
 
 filetype plugin indent on
 syntax on
