@@ -161,20 +161,6 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     endif
 endif
 
-if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
-    nnoremap <silent> <leader>gs :Gstatus<CR>
-    nnoremap <silent> <leader>gd :Gdiff<CR>
-    nnoremap <silent> <leader>gc :Gcommit<CR>
-    nnoremap <silent> <leader>gb :Gblame<CR>
-    nnoremap <silent> <leader>gl :Glog<CR>
-    nnoremap <silent> <leader>gp :Git push<CR>
-    nnoremap <silent> <leader>gr :Gread<CR>
-    nnoremap <silent> <leader>gw :Gwrite<CR>
-    nnoremap <silent> <leader>ge :Gedit<CR>
-    " Mnemonic _i_nteractive
-    nnoremap <silent> <leader>gi :Git add -p %<CR>
-    nnoremap <silent> <leader>gg :SignifyToggle<CR>
-endif
 
 if !has('python')
     let g:pymode = 0
@@ -216,6 +202,18 @@ noremap k gk
 " Easy Tabs
 nmap <S-l> :tabnext<CR>
 nmap <S-h> :tabprev<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Git push<CR>
+nmap <leader>gr :Gread<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>ge :Gedit<CR>
+" Mnemonic _i_nteractive
+nnoremap <leader>gi :Git add -p %<CR>
+nnoremap <leader>gg :SignifyToggle<CR>
 " Easy Windows
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
