@@ -1,7 +1,8 @@
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker nospell:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=9 foldmethod=marker nospell:
 set nocompatible
 set shell=/bin/sh
 
+source ~/.vimrc.before
 source ~/.vimrc.bundles
 
 filetype plugin indent on
@@ -20,9 +21,10 @@ set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
 set hidden                          " Allow buffer switching without saving
 
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
-set cursorline                  " Highlight current line
+" Current line HL
+"highlight clear SignColumn      " SignColumn should match background
+"highlight clear LineNr          " Current line number row will have same background color in relative mode
+"set cursorline                  " Highlight current line
 
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -221,8 +223,12 @@ map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
 
-set bg=light
+"set bg=light
+set bg=dark
 colo solarized
+let g:solarized_termcolors = 256
+let g:solarized_bold = 1
+let g:solarized_termtrans = 1
 set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
 
 " Strip whitespace {
@@ -288,3 +294,5 @@ function! s:RunShellCommand(cmdline)
 endfunction
 
 command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
+
+source ~/.vimrc.after
