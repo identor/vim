@@ -1,0 +1,35 @@
+{
+  "name": "identor-vim",
+  "version": "1.0.0",
+  "description": "identor's Vim Configurations.",
+  "scripts": {
+    "create-vim-bundle-dir": "mkdir -p ~/.vim/bundle",
+    "create-vim-dir": "mkdir -p ~/.vim",
+    "clone-vundle": "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle",
+    "install-vundle": "npm run create-vim-dir && npm run create-vim-bundle-dir && npm run clone-vundle",
+    "cp-vimrc": "cp vimrc ~/.vimrc",
+    "cp-vimrc-after": "cp vimrc-after ~/.vimrc.after",
+    "cp-vimrc-before": "cp vimrc-before ~/.vimrc.before",
+    "cp-vimrc-bundles": "cp vimrc-bundles ~/.vimrc.bundles",
+    "cp-rc-files": "npm run cp-vimrc && npm run cp-vimrc-after && npm run cp-vimrc-before && npm run cp-vimrc-bundles",
+    "install-bundles": "vim +BundleInstall +qall",
+    "install": "npm run cp-rc-files && npm run install-bundles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/identor/vim.git"
+  },
+  "keywords": [
+    "vim",
+    "nodejs",
+    "npm",
+    "spf13-vim"
+  ],
+  "author": "identor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/identor/vim/issues"
+  },
+  "homepage": "https://github.com/identor/vim#readme"
+}
+
