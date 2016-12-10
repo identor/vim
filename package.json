@@ -13,7 +13,10 @@
     "cp-vimrc-bundles": "cp vimrc-bundles ~/.vimrc.bundles",
     "cp-rc-files": "npm run cp-vimrc && npm run cp-vimrc-after && npm run cp-vimrc-before && npm run cp-vimrc-bundles",
     "install-bundles": "vim +BundleInstall +qall",
-    "install": "npm run cp-rc-files && npm run install-bundles"
+    "rm-ftplugin": "rm -rf ~/.vim/ftplugin",
+    "cp-ftplugin": "cp -r ftplugin ~/.vim/.",
+    "install-ftplugin": "npm run create-vim-dir && npm run rm-ftplugin && npm run cp-ftplugin",
+    "install": "npm run cp-rc-files && npm run install-ftplugin && npm run install-bundles"
   },
   "repository": {
     "type": "git",

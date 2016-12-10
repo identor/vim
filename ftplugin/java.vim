@@ -1,12 +1,9 @@
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+setlocal ts=4 sw=4 sts=4 autoindent expandtab
 " With these you can cl/cn/cp (quickfix commands) to browse the errors
 " after you compile it with :make
 
-set makeprg=javac\ %
-set errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
+setlocal makeprg=javac\ %
+setlocal errorformat=%A:%f:%l:\ %m,%-Z%p^,%-C%.%#
 " F9/F10 compile/run default file.
 " F11/F12 compile/run alternate file.
 

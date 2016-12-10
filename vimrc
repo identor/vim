@@ -14,7 +14,7 @@ set mouse=a
 
 scriptencoding utf-8
 
-set noexpandtab
+set sw=2 ts=2 sts=2 expandtab autoindent
 set nospell
 
 set virtualedit=onemore             " Allow for cursor beyond last character
