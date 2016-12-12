@@ -46,6 +46,7 @@ Bundle 'klen/python-mode'
 Bundle 'yssource/python.vim'
 Bundle 'python_match.vim'
 Bundle 'xsbeats/vim-blade'
+Bundle 'leafgarland/typescript-vim'
 if executable('ag')
     Bundle 'mileszs/ack.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
