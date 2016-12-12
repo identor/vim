@@ -1,4 +1,2 @@
-set et
-set ts=4
-set sts=4
-set sw=4
+setlocal et ts=4 sts=4 sw=4
+
