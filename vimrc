@@ -1,9 +1,10 @@
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=9 foldmethod=marker nospell:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker nospell:
+source ~/.vimrc.bundles
+source ~/.vimrc.before
+
+set clipboard=unnamed
 set nocompatible
 set shell=/bin/sh
-
-source ~/.vimrc.before
-source ~/.vimrc.bundles
 
 filetype plugin indent on
 syntax on
@@ -21,10 +22,13 @@ set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
 set hidden                          " Allow buffer switching without saving
 
-" Current line HL
-"highlight clear SignColumn      " SignColumn should match background
-"highlight clear LineNr          " Current line number row will have same background color in relative mode
-"set cursorline                  " Highlight current line
+highlight clear SignColumn      " SignColumn should match background
+highlight clear LineNr          " Current line number row will have same background color in relative mode
+set cursorline                  " Highlight current line
+
+set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
+set bg=dark
+colo badwolf
 
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -58,7 +62,6 @@ endif
 
 if has('statusline')
     set laststatus=2
-
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
@@ -83,7 +86,12 @@ if has('persistent_undo')
 endif
 
 if has('gui_running')
-    colo solarized
+    set bg=dark
+    "colo wombat
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 endif
 
@@ -162,20 +170,6 @@ if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     endif
 endif
 
-if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
-    nnoremap <silent> <leader>gs :Gstatus<CR>
-    nnoremap <silent> <leader>gd :Gdiff<CR>
-    nnoremap <silent> <leader>gc :Gcommit<CR>
-    nnoremap <silent> <leader>gb :Gblame<CR>
-    nnoremap <silent> <leader>gl :Glog<CR>
-    nnoremap <silent> <leader>gp :Git push<CR>
-    nnoremap <silent> <leader>gr :Gread<CR>
-    nnoremap <silent> <leader>gw :Gwrite<CR>
-    nnoremap <silent> <leader>ge :Gedit<CR>
-    " Mnemonic _i_nteractive
-    nnoremap <silent> <leader>gi :Git add -p %<CR>
-    nnoremap <silent> <leader>gg :SignifyToggle<CR>
-endif
 
 if !has('python')
     let g:pymode = 0
@@ -217,19 +211,23 @@ noremap k gk
 " Easy Tabs
 nmap <S-l> :tabnext<CR>
 nmap <S-h> :tabprev<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gdiff<CR>
+nmap <leader>gc :Gcommit<CR>
+nmap <leader>gb :Gblame<CR>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Git push<CR>
+nmap <leader>gr :Gread<CR>
+nmap <leader>gw :Gwrite<CR>
+nmap <leader>ge :Gedit<CR>
+" Mnemonic _i_nteractive
+nnoremap <leader>gi :Git add -p %<CR>
+nnoremap <leader>gg :SignifyToggle<CR>
 " Easy Windows
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-L> <C-W>l<C-W>_
 map <C-H> <C-W>h<C-W>_
-
-"set bg=light
-set bg=dark
-colo solarized
-let g:solarized_termcolors = 256
-let g:solarized_bold = 1
-let g:solarized_termtrans = 1
-set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
 
 " Strip whitespace {
 function! StripTrailingWhitespace()
@@ -294,5 +292,3 @@ function! s:RunShellCommand(cmdline)
 endfunction
 
 command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
-
-source ~/.vimrc.after
