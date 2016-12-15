@@ -7,10 +7,36 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+function! InitDein()
+    " Required:
+    set runtimepath+=/home/irvin/.vim/dein/repos/github.com/Shougo/dein.vim
+
+    " Required:
+    call dein#begin('/home/irvin/.vim/dein')
+
+    " Let dein manage dein
+    " Required:
+    call dein#add('Shougo/dein.vim')
+    call dein#add('Shougo/neocomplete.vim')
+
+    " Add or remove your plugins here:
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+
+    call dein#end()
+    if dein#check_install()
+      call dein#install()
+    endif
+endfunction
+
 function! UnBundle(arg, ...)
   let bundle = vundle#config#init_bundle(a:arg, a:000)
   call filter(g:vundle#bundles, 'v:val["name_spec"] != "' . a:arg . '"')
 endfunction
+
+" Init Dein
+call InitDein()
 
 com! -nargs=+         UnBundle
 \ call UnBundle(<args>)
@@ -47,6 +73,7 @@ Bundle 'yssource/python.vim'
 Bundle 'python_match.vim'
 Bundle 'xsbeats/vim-blade'
 Bundle 'leafgarland/typescript-vim'
+Bundle 'Quramy/tsuquyomi'
 if executable('ag')
     Bundle 'mileszs/ack.vim'
     let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
@@ -56,3 +83,4 @@ elseif executable('ack-grep')
 elseif executable('ack')
     Bundle 'mileszs/ack.vim'
 endif
+

@@ -15,6 +15,10 @@
     "install-bundles": "vim +BundleInstall +qall",
     "rm-ftplugin": "rm -rf ~/.vim/ftplugin",
     "cp-ftplugin": "cp -r ftplugin ~/.vim/.",
+    "curl-dein": "curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh",
+    "exec-dein-sh": "sh ./installer.sh ~/.vim/dein",
+    "rm-dein-installer": "rm installer.sh",
+    "install-dein": "npm run curl-dein && npm run exec-dein-sh && npm run rm-dein-installer",
     "install-ftplugin": "npm run create-vim-dir && npm run rm-ftplugin && npm run cp-ftplugin",
     "install": "npm run cp-rc-files && npm run install-ftplugin && npm run install-bundles"
   },

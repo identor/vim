@@ -7,7 +7,7 @@ set nocompatible
 set shell=/bin/sh
 
 filetype plugin indent on
-syntax on
+syntax enable
 
 autocmd VimEnter * set nospell
 
