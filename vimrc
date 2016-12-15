@@ -116,25 +116,9 @@ augroup END
 let g:autoclose_on = 0
 let g:airline_theme = 'monochrome'
 
-if isdirectory(expand("~/.vim/bundle/nerdtree"))
-    map <C-e> <plug>NERDTreeTabsToggle<CR>
-    map <leader>e :NERDTreeFind<CR>
-    nmap <leader>nt :NERDTreeFind<CR>
-
-    let NERDTreeShowBookmarks=1
-    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-    let NERDTreeChDirMode=0
-    let NERDTreeQuitOnOpen=1
-    let NERDTreeMouseMode=2
-    let NERDTreeShowHidden=1
-    let NERDTreeKeepTreeInNewTab = 0
-    let g:nerdtree_tabs_open_on_new_tab = 0
-    let g:nerdtree_tabs_autoclose = 1
-endif
-
 if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
     let g:ctrlp_working_path_mode = 'ra'
-    nnoremap <silent> <D-t> :CtrlP<CR>
+    let g:ctrlp_map = '<leader>t'
     nnoremap <silent> <D-r> :CtrlPMRU<CR>
     let g:ctrlp_custom_ignore = {
         \ 'dir':  '\.git$\|\.hg$\|\.svn$',
@@ -194,7 +178,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Remappings
-let mapleader = ','
+let mapleader = ' '
 let maplocalleader = '_'
 
 " VisualMode Shifting
@@ -220,8 +204,8 @@ noremap k gk
 
 " Mappings
 " Easy Tabs
-nmap <S-l> :tabnext<CR>
-nmap <S-h> :tabprev<CR>
+nmap <leader>l :tabnext<CR>
+nmap <leader>h :tabprev<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gdiff<CR>
 nmap <leader>gc :Gcommit<CR>
@@ -301,5 +285,19 @@ function! s:RunShellCommand(cmdline)
     setlocal nomodifiable
     1
 endfunction
+
+if isdirectory(expand("~/.vim/bundle/nerdtree"))
+    nnoremap <leader>y :NERDTreeTabsToggle<CR>
+
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let NERDTreeChDirMode=0
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab = 0
+    let g:nerdtree_tabs_open_on_new_tab = 0
+    let g:nerdtree_tabs_autoclose = 1
+endif
 
 command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
